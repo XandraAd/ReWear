@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Leaf, ShoppingBag, Shield, Recycle, Info } f
 import { supabase } from '../lib/supabase';
 import { Button } from '../components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../components/ui/tooltip';
-import { useCart } from '../lib/cartContext';
+import { useCart } from '../lib/CartContext';
 import ProductCard from '../components/store/ProductCard';
 import ProductReviews from '../components/store/ProductReviews';
 
