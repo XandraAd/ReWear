@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 95%;
+    --foreground: 0 0% 10%;
+    --card: 35 18% 93%;
+    --card-foreground: 0 0% 10%;
+    --popover: 30 20% 95%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 14 46% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 90 15% 36%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 35 15% 88%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 35 15% 88%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 35 12% 82%;
+    --input: 35 12% 82%;
+    --ring: 14 46% 48%;
+    --chart-1: 14 46% 48%;
+    --chart-2: 90 15% 36%;
+    --chart-3: 35 18% 70%;
+    --chart-4: 0 0% 30%;
+    --chart-5: 30 20% 60%;
+    --radius: 0.5rem;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 30 10% 85%;
+    --sidebar-primary: 14 46% 48%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 30 10% 85%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 14 46% 48%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 30 10% 90%;
+    --card: 0 0% 9%;
+    --card-foreground: 30 10% 90%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 30 10% 90%;
+    --primary: 14 46% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 90 15% 36%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 30 10% 60%;
+    --accent: 0 0% 14%;
+    --accent-foreground: 30 10% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 14 46% 48%;
+    --chart-1: 14 46% 55%;
+    --chart-2: 90 20% 45%;
+    --chart-3: 35 18% 50%;
+    --chart-4: 0 0% 60%;
+    --chart-5: 30 20% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+/* Noise texture overlay */
+.noise-bg {
+  position: relative;
+}
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Force admin dark background */
+[data-admin] {
+  background-color: #0F0F0F !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(35 12% 75%); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(35 12% 65%); }
+
+/* Prose for product descriptions */
+.prose-rewear {
+  @apply text-foreground/80 leading-relaxed;
+}
+.prose-rewear p { @apply mb-4; }
+.prose-rewear ul { @apply list-disc pl-5 mb-4; }
+.prose-rewear strong { @apply font-semibold text-foreground; }
