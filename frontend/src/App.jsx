@@ -6,7 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from './lib/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
-import { CartProvider } from './lib/cartContext';
+import { CartProvider } from './lib/CartContext.jsx';
 
 // Public storefront pages
 import Home from './pages/Home';
