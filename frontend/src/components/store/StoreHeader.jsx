@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Menu, X, Search } from 'lucide-react';
 import { useCart } from '../../lib/CartContext';
-//import { Button } from '../../components/ui/button';
+import Logo from "../../assets/logo.jpeg"
 
 export default function StoreHeader() {
   const { itemCount, setIsOpen } = useCart();
@@ -20,8 +20,17 @@ export default function StoreHeader() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-cream/80 backdrop-blur-xl shadow-sm' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            <Link to="/" className="font-display text-2xl sm:text-3xl font-bold text-obsidian tracking-tight">
-              ReWear
+
+            {/* Logo + Brand name */}
+            <Link to="/" className="flex items-center gap-2.5">
+              <img
+                src={Logo}
+                alt="ReWear logo"
+                className="w-[5rem] h-[5rem] rounded-full object-cover"
+              />
+              <span className="font-display text-2xl sm:text-3xl font-bold text-obsidian tracking-tight">
+                ReWear
+              </span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">
@@ -56,7 +65,10 @@ export default function StoreHeader() {
       {mobileMenu && (
         <div className="fixed inset-0 z-[60] bg-cream">
           <div className="flex items-center justify-between p-4">
-            <span className="font-display text-2xl font-bold text-obsidian">ReWear</span>
+            <Link to="/" className="flex items-center gap-2" onClick={() => setMobileMenu(false)}>
+              <img src={Logo} alt="ReWear logo" className="w-8 h-8 rounded-full object-cover" />
+              <span className="font-display text-2xl font-bold text-obsidian">ReWear</span>
+            </Link>
             <button onClick={() => setMobileMenu(false)} className="p-2"><X className="w-6 h-6" /></button>
           </div>
           <nav className="flex flex-col items-center gap-6 pt-16">
